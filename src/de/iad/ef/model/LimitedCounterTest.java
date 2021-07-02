@@ -1,4 +1,4 @@
-package de.iad.ef.model;
+/*package de.iad.ef.model;
 
 public class LimitedCounterTest {
 
@@ -7,4 +7,4 @@ public class LimitedCounterTest {
         LimitedCounterTest Testumgebung = new LimitedCounterTest();
         LimitedCounterTest tester = new Tester();
     }
-}
+}*/

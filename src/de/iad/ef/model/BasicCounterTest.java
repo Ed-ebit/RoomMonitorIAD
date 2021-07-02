@@ -6,22 +6,27 @@ public class BasicCounterTest {
     class Tester extends BasicCounter{
 
         public Tester(){
+
             super();//Konstruktoraufruf in der Basisklasse
         }
         public Tester(Integer initVal){
+
             super(initVal);
         }
         @Override
         protected void setCount(Integer count) {
+
             super.setCount(count);
         }
         @Override
         public void reset() {
+
             super.reset();
         }
 
         @Override
         public Integer currentCount() {
+
             return super.currentCount();
         }
     }
@@ -85,7 +90,7 @@ public class BasicCounterTest {
     private static void testStandardKonstruktor(BasicCounterTest testUmgebung) {
         Tester tester = testUmgebung.new Tester();// nur in Java, Sonderfall. Klasse in Klasse oder so
         System.out.println(" Test Std Konstruktor erwartet 0 und geliefert wird 0" +
-                (tester.currentCount()==0 ? " ok":"F ehler"));
+                (tester.currentCount()==0 ? " ok":"Fehler"));
     }
 }
 

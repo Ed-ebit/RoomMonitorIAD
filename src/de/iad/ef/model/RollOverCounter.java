@@ -4,20 +4,35 @@ public class RollOverCounter extends LimitedCounter {
 
     /*Methoden*/
 
-    @Override{
+   @Override
     public void count(){
+            if (this.isMaximumReached()) {  //super.isMaximumReached() ebenfalls möglich
+                this.setCount(this.minimumIs());
+                return;
+            }
+            else{
+                super.count();
+            }
     }
+    //@Override
+        public void unCount(){
+            if (this.isMinimumReached()) {  //super.isMaximumReached() ebenfalls möglich
+            this.setCount(this.maximumIs());
+            return;
+        }
+        else{
+            this.uncount();
+        }
     }
+    // Konstruktoren
+
     public RollOverCounter(){
-        this.setCount(minimumIs());
+        super();
 
     }
-    public void RollOverCounter(Integer, Integer){
+    public RollOverCounter(Integer minCount, Integer maxCount){
+        super(minCount, maxCount);
 
     }
-    public void unCount(){
-
-    }
-
 
 }

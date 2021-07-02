@@ -23,6 +23,7 @@ public abstract class BasicCounter {
 
     //Getter und Setter
     protected void setCount(Integer count){
+
         this.counted=count;
     }
 
@@ -37,11 +38,12 @@ public abstract class BasicCounter {
 
     }
     public Integer currentCount(){
+
         return this.counted;
     }
     public void reset(){
+
         this.counted=this.initialCount;
     }
-
 
 }
