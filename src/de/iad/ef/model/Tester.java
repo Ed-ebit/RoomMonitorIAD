@@ -1,36 +1,7 @@
 package de.iad.ef.model;
 
-public class TestAppSuite {
-    static class BasicCounterTest {
-        class Tester extends BasicCounter{
-
-            public Tester(){
-
-                super();//Konstruktoraufruf in der Basisklasse
-            }
-            public Tester(Integer initVal){
-
-                super(initVal);
-            }
-            @Override
-            protected void setCount(Integer count) {
-
-                super.setCount(count);
-            }
-            @Override
-            public void reset() {
-
-                super.reset();
-            }
-
-            @Override
-            public Integer currentCount() {
-
-                return super.currentCount();
-            }
-        }
-
-        public static void main(String[] args) {
+public class Tester {
+    public static void main(String[] args) {
 
     /*        BasicCounter counter = new BasicCounter() {
                 @Override
@@ -59,17 +30,48 @@ public class TestAppSuite {
                 }
             }
                 }*/
-            BasicCounterTest testUmgebung = new BasicCounterTest();
-            // Erster Test StandardKonstruktor
-            testStandardKonstruktor(testUmgebung);
-            testParameterKonstruktor(testUmgebung);
-            testSetundReset(testUmgebung);
+        BasicCounterTest testUmgebung = new BasicCounterTest();
+        // Erster Test StandardKonstruktor
+        testUmgebung.testStandardKonstruktor(testUmgebung);
+        testUmgebung.testParameterKonstruktor(testUmgebung);
+        testUmgebung.testSetundReset(testUmgebung);
+        LimitedCounterTest testumgebung = new LimitedCounterTest();
 
 
+
+    }
+    static class BasicCounterTest {
+        class BasicTester extends BasicCounter{
+
+            public BasicTester(){
+
+                super();//Konstruktoraufruf in der Basisklasse
+            }
+            public BasicTester(Integer initVal){
+
+                super(initVal);
+            }
+            @Override
+            protected void setCount(Integer count) {
+
+                super.setCount(count);
+            }
+            @Override
+            public void reset() {
+
+                super.reset();
+            }
+
+            @Override
+            public Integer currentCount() {
+
+                return super.currentCount();
+            }
         }
 
+
         private static void testSetundReset(BasicCounterTest testUmgebung) {
-            Tester tester = testUmgebung.new Tester(42);// nur in Java, Sonderfall. Klasse in Klasse oder so
+            BasicTester tester = testUmgebung.new BasicTester(42);// nur in Java, Sonderfall. Klasse in Klasse oder so
             System.out.println(" Test Std Konstruktor erwartet 42 und geliefert wird 42" +
                     (tester.currentCount()== 42 ? " ok":" Fehler"));
             tester.setCount(4711);
@@ -81,24 +83,24 @@ public class TestAppSuite {
         }
 
         private static void testParameterKonstruktor(BasicCounterTest testUmgebung) {
-            Tester tester = testUmgebung.new Tester(4711);// nur in Java, Sonderfall. Klasse in Klasse oder so
+            BasicTester tester = testUmgebung.new BasicTester(4711);// nur in Java, Sonderfall. Klasse in Klasse oder so
             System.out.println(" Test Std Konstruktor erwartet 0 und geliefert wird 0" +
                     (tester.currentCount()== 4711 ? " ok":" Fehler"));
         }
 
         private static void testStandardKonstruktor(BasicCounterTest testUmgebung) {
-            Tester tester = testUmgebung.new Tester();// nur in Java, Sonderfall. Klasse in Klasse oder so
+            BasicTester tester = testUmgebung.new BasicTester();// nur in Java, Sonderfall. Klasse in Klasse oder so
             System.out.println(" Test Std Konstruktor erwartet 0 und geliefert wird 0" +
                     (tester.currentCount()==0 ? " ok":"Fehler"));
         }
     }
 
-    public static class LimitedCounterTest {
+    static class LimitedCounterTest {
 
-        class Tester extends LimitedCounter {
+        class LimitedTester extends LimitedCounter {
 
-            LimitedCounterTest Testumgebung = new LimitedCounterTest();
-            LimitedCounterTest tester = new Tester();
+            LimitedCounterTest tester = new LimitedCounterTest();
+
         }
     }
 }
