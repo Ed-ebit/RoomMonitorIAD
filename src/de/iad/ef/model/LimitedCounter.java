@@ -18,17 +18,19 @@ public abstract class LimitedCounter extends BasicCounter {
     }
     protected LimitedCounter( Integer min, Integer max){
         super(min);// macht das was BasicCounter macht, nur dass er jetzt Grenzen hat
-        this.maximumCount=max;
         this.minimumCount=min;
+        this.maximumCount=max;
 
     }
 
     //Getter & Setter
     public Integer getDEFAULT_MAXIMUM() {
+
         return DEFAULT_MAXIMUM;
     }
 
     public Integer getDEFAULT_MINIMUM() {
+
         return DEFAULT_MINIMUM;
     }
 
@@ -43,7 +45,7 @@ public abstract class LimitedCounter extends BasicCounter {
     // Methoden
 
     public Boolean isMaximumReached(){
-        if(this.currentCount()==maximumCount){
+        if(super.currentCount()==maximumCount){
         return true;
         }
         else return false;
@@ -51,7 +53,7 @@ public abstract class LimitedCounter extends BasicCounter {
 
     public Boolean isMinimumReached(){
         //Alternative=
-        return this.currentCount()== minimumCount;
+        return super.currentCount()== minimumCount;
 
 //        if(this.currentCount()== maximumCount) {
 //            return true;

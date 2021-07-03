@@ -92,4 +92,13 @@ public class TestAppSuite {
                     (tester.currentCount()==0 ? " ok":"Fehler"));
         }
     }
+
+    public static class LimitedCounterTest {
+
+        class Tester extends LimitedCounter {
+
+            LimitedCounterTest Testumgebung = new LimitedCounterTest();
+            LimitedCounterTest tester = new Tester();
+        }
+    }
 }
